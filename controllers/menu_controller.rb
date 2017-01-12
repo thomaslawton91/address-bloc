@@ -14,7 +14,11 @@ class MenuController
     puts "3 - Create an entry"
     puts "4 - Search for an entry"
     puts "5 - Import entries from a CSV"
+<<<<<<< Updated upstream
     puts "6 - Mutually assured destruction"
+=======
+    puts "6 - Destroy this book"
+>>>>>>> Stashed changes
     puts "7 - Exit"
     print "Enter your selection: "
 
@@ -43,6 +47,10 @@ class MenuController
       read_csv
       main_menu
     when 6
+      system "clear"
+      destroy
+      main_menu
+    when 7
       puts "Good-bye!"
       # #8
       exit(0)
@@ -150,6 +158,21 @@ class MenuController
       view_entry_number
     end
   end
+
+  def destroy
+    print "After this you will be alone. Enter y to proceed and n to cancel: "
+    entry = gets.chomp.to_s
+    case entry
+      when "y"
+        puts "Goodbye!"
+        address_book.entries.clear
+      when "n"
+        puts "You're safe for now."
+        main_menu
+      else
+        "You seem hesitant as #{entry} is not valid input!"
+      end
+    end
 
   def entry_submenu(entry)
     puts "n - next entry"
