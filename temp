@@ -1,0 +1,21 @@
+def destroy
+  print "After this you will be alone. Enter y to proceed and n to cancel: "
+  entry = gets.chomp.to_s
+  case entry
+    when "y"
+      puts "Goodbye!"
+      address_book.entries.clear
+    when "n"
+      puts "You're safe for now."
+      main_menu
+    else
+      "You seem hesitant as #{entry} is not valid input!"
+    end
+  end
+
+  when 6
+    system "clear"
+    destroy
+    main_menu
+
+    
